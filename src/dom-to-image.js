@@ -231,7 +231,10 @@
                 copyStyle(window.getComputedStyle(original), clone.style);
 
                 function copyStyle(source, target) {
-                    if (source.cssText) target.cssText = source.cssText;
+                    if (source.cssText) {
+                        target.cssText = source.cssText;
+                        target.font = source.font;
+                    }
                     else copyProperties(source, target);
 
                     function copyProperties(source, target) {
